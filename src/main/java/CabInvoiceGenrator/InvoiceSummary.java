@@ -11,5 +11,6 @@ public class InvoiceSummary {
         this.avgFarePerRide = totalFare/totalNumberOfRides;
     }
 
-
+    public InvoiceSummary() {
+    }
 }
