@@ -2,10 +2,10 @@ package CabInvoiceGenrator;
 
 public class CabData {
     double distance;
-    double time;
+    double timeInMin;
 
-    public CabData(double distance, double time) {
+    public CabData(double distance, double timeInMin) {
         this.distance = distance;
-        this.time = time;
+        this.timeInMin = timeInMin;
     }
 }

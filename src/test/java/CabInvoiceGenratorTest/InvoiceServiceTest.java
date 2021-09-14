@@ -1,8 +1,11 @@
 package CabInvoiceGenratorTest;
 
+import CabInvoiceGenrator.CabData;
 import CabInvoiceGenrator.CabInvoice;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 public class InvoiceServiceTest {
     @Test
@@ -22,10 +25,21 @@ public class InvoiceServiceTest {
         double distanceInKm = 0.1;
         double timeInMin = 0.1;
         double totalFare = cabInvoice.totalFare(distanceInKm, timeInMin);
-        double minimumFare = 5.0;
-        double minFare = Math.max(totalFare,minimumFare);
-        Assert.assertEquals(5, minFare, 0.1);
+
+        Assert.assertEquals(5, totalFare, 0.1);
     }
 
-    
+    ArrayList<CabData> cabData = new ArrayList<>();
+    @Test
+    public void givenMultipleRides_ReturnTotalFare(){
+        CabInvoice cabInvoice = new CabInvoice();
+
+        cabData.add(new CabData(10,10));
+        cabData.add(new CabData(0.1,0.1));
+
+        double fare = cabInvoice.calculateFares(cabData);
+        
+        Assert.assertEquals(55, fare, 0.1);
+
+    }
 }
