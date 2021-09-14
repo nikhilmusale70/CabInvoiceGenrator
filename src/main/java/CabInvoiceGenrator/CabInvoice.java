@@ -17,7 +17,14 @@ public class CabInvoice {
         for (CabData cd : cabData){
             fare += totalFare(cd.distance,cd.timeInMin);
         }
-
         return fare;
+    }
+
+    public InvoiceSummary invoiceSummary(ArrayList<CabData> cabData){
+
+        int numberOfRides = cabData.size();
+        double totalFare = calculateFares(cabData);
+
+        return new InvoiceSummary(numberOfRides, totalFare);
     }
 }
